@@ -13,14 +13,15 @@
     "test:watch": "jest --watch"
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown",
+    "**/*": [
+      "prettier --write --ignore-unknown"
+    ],
     "src/**/*.{js,ts,tsx}": [
       "eslint"
     ],
     "__tests__/**/*": [
       "prettier --write --ignore-unknown",
-      "eslint",
-      "jest"
+      "eslint"
     ]
   },
   "dependencies": {
