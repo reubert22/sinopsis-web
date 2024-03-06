@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { AllProviders } from '@/store/combineProviders'
+import { CombineProviders } from '@/store/combineProviders'
+import { TrendingProvider } from '@/store/trendingStore'
 
 import './globals.css'
 
@@ -17,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AllProviders>{children}</AllProviders>
+        <CombineProviders providers={[[TrendingProvider, {}]]}>
+          {children}
+        </CombineProviders>
       </body>
     </html>
   )

@@ -1,10 +1,15 @@
 import React, { ComponentProps, ComponentType, FC } from 'react'
-import { TrendingProvider } from './trendingStore'
 
 type Providers = [ComponentType<any>, ComponentProps<any>?][]
 
-const combineProviders = (providers: Providers): FC =>
-  providers.reduce(
+export const CombineProviders = ({
+  providers,
+  children,
+}: {
+  providers: Providers
+  children: React.ReactNode
+}) => {
+  const CombinedProviders = providers.reduce(
     (AccumulatedProviders, [Provider, props = {}]) =>
       function Func({ children }: any) {
         return (
@@ -18,4 +23,5 @@ const combineProviders = (providers: Providers): FC =>
     ({ children }: any) => <>{children}</>
   )
 
-export const AllProviders = combineProviders([[TrendingProvider, {}]])
+  return <CombinedProviders>{children}</CombinedProviders>
+}
