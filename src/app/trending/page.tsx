@@ -1,12 +1,12 @@
-'use client'
+'use client';
 
-import { ITrendingItem, useTrending } from '@/store/trendingStore'
-import { useRouter } from 'next/navigation'
+import { ITrendingItem, useTrending } from '@/store/trendingStore';
+import { useRouter } from 'next/navigation';
 
 export default function Trending() {
-  const { filter, setFilter, trending } = useTrending()
-  const router = useRouter()
-  const trendingItems = trending || []
+  const { filter, setFilter, trending } = useTrending();
+  const router = useRouter();
+  const trendingItems = trending || [];
 
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
@@ -52,5 +52,5 @@ export default function Trending() {
         ))}
       </div>
     </main>
-  )
+  );
 }

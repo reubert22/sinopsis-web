@@ -1,13 +1,13 @@
-import React, { ComponentProps, ComponentType, FC } from 'react'
+import React, { ComponentProps, ComponentType, FC } from 'react';
 
-type Providers = [ComponentType<any>, ComponentProps<any>?][]
+type Providers = [ComponentType<any>, ComponentProps<any>?][];
 
 export const CombineProviders = ({
   providers,
   children,
 }: {
-  providers: Providers
-  children: React.ReactNode
+  providers: Providers;
+  children: React.ReactNode;
 }) => {
   const CombinedProviders = providers.reduce(
     (AccumulatedProviders, [Provider, props = {}]) =>
@@ -18,10 +18,10 @@ export const CombineProviders = ({
               <>{children}</>
             </Provider>
           </AccumulatedProviders>
-        )
+        );
       },
     ({ children }: any) => <>{children}</>
-  )
+  );
 
-  return <CombinedProviders>{children}</CombinedProviders>
-}
+  return <CombinedProviders>{children}</CombinedProviders>;
+};
