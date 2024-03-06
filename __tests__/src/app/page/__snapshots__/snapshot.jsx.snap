@@ -40,6 +40,7 @@ exports[`renders homepage unchanged 1`] = `
             style="color: transparent;"
             width="100"
           />
+          and TMDB
         </a>
       </div>
     </div>
@@ -63,14 +64,12 @@ exports[`renders homepage unchanged 1`] = `
     >
       <a
         class="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-        href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-        rel="noopener noreferrer"
-        target="_blank"
+        href="/trending"
       >
         <h2
           class="mb-3 text-2xl font-semibold"
         >
-          Docs
+          Trending
            
           <span
             class="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none"
@@ -86,14 +85,14 @@ exports[`renders homepage unchanged 1`] = `
       </a>
       <a
         class="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-        href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+        href="trending"
         rel="noopener noreferrer"
         target="_blank"
       >
         <h2
           class="mb-3 text-2xl font-semibold"
         >
-          Learn
+          Movies
            
           <span
             class="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none"
@@ -116,7 +115,7 @@ exports[`renders homepage unchanged 1`] = `
         <h2
           class="mb-3 text-2xl font-semibold"
         >
-          Templates
+          Tv Series
            
           <span
             class="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none"
@@ -139,7 +138,7 @@ exports[`renders homepage unchanged 1`] = `
         <h2
           class="mb-3 text-2xl font-semibold"
         >
-          Deploy
+          All
            
           <span
             class="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none"
