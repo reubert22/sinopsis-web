@@ -6,6 +6,7 @@ import { apiClient } from '@/data/apiClient'
 export default function Trending() {
   const getTrending = async () => {
     try {
+      console.log('loading')
       const data = await apiClient.get(`trending/all/day?language=en-US`)
       console.log(data)
     } catch (err) {
