@@ -13,7 +13,7 @@
     "test:watch": "jest --watch"
   },
   "lint-staged": {
-    "src/**/*": "prettier --write --ignore-unknown",
+    "**/*": "prettier --write --ignore-unknown",
     "src/**/*.{js,ts,tsx}": [
       "eslint"
     ],
