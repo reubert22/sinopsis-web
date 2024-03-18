@@ -1,14 +1,11 @@
 'use client';
 
 import { useFetchTrending } from '@/api/usefetchTrending';
-import { Input } from '@/components/Input/Input';
 import { shouldScroll } from '@/utils/functions';
-import { useState } from 'react';
 
 export const RenderTrending = () => {
-  const [query, setQuery] = useState('');
   const { data, isLoading, fetchNextPage, error, isFetching } =
-    useFetchTrending(query);
+    useFetchTrending('');
 
   const handleScroll = (e: React.UIEvent<HTMLElement>) =>
     shouldScroll(e) ? fetchNextPage() : null;
@@ -17,9 +14,7 @@ export const RenderTrending = () => {
 
   return (
     <div className=" w-auto overflow-auto h-screen" onScroll={handleScroll}>
-      <Input value={query} onChange={setQuery} />
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
+      <div className="mb-32 mt-4 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
         {data && data.pages
           ? data.pages.map((page) =>
               page.results.map((item) => (
