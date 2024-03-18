@@ -3,7 +3,7 @@ import { RenderTrending } from '@/components/Trending/RenderAndFilter/RenderAndF
 
 export default function Trending() {
   return (
-    <main className="flex min-h-screen flex-col items-center p-24">
+    <main className="flex w-screen h-screen flex-col p-24 items-center overflow-hidden">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         <BackButton />
 

@@ -6,7 +6,6 @@ import {
   createContext,
   useContext,
   ReactNode,
-  useEffect,
   Dispatch,
   SetStateAction,
 } from 'react';
@@ -37,31 +36,9 @@ export interface TrendingContextProps {
   trending: ITrendingItem[];
 }
 
-export async function getData() {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_TMDB_BASE_URL}trending/all/day?language=en-US&api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`
-  );
-
-  if (!response.ok) {
-    throw new Error('Failed to fetch response');
-  }
-
-  return response.json();
-}
-
 export const TrendingProvider = ({ children }: { children: ReactNode }) => {
   const [filter, setFilter] = useState<string>('');
   const [trending, setTrending] = useState<ITrendingItem[]>([]);
-
-  const handleGetTrending = async () => {
-    const response = await getData();
-
-    setTrending(response.results || []);
-  };
-
-  useEffect(() => {
-    handleGetTrending();
-  }, []);
 
   const filteredTrending = useMemo(
     () =>
