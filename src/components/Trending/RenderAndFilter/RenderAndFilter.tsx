@@ -2,27 +2,21 @@
 
 import { useFetchTrending } from '@/api/usefetchTrending';
 import { Input } from '@/components/Input/Input';
+import { shouldScroll } from '@/utils/functions';
 import { useState } from 'react';
 
 export const RenderTrending = () => {
   const [query, setQuery] = useState('');
-
   const { data, isLoading, fetchNextPage, error, isFetching } =
     useFetchTrending(query);
 
-  const handleScroll = (e: React.UIEvent<HTMLElement>) => {
-    const { scrollTop, clientHeight, scrollHeight } = e.currentTarget;
-
-    if (scrollHeight - scrollTop === clientHeight) fetchNextPage();
-  };
+  const handleScroll = (e: React.UIEvent<HTMLElement>) =>
+    shouldScroll(e) ? fetchNextPage() : null;
 
   if (error) return <div>Oh noooooooo something went wrong!</div>;
 
   return (
-    <div
-      className="min-w-[100%] w-auto overflow-auto h-screen"
-      onScroll={handleScroll}
-    >
+    <div className=" w-auto overflow-auto h-screen" onScroll={handleScroll}>
       <Input value={query} onChange={setQuery} />
 
       <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
