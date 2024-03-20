@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import { TRENDING_ALL_URL } from '@/utils/apiConstants';
 
 dotenv.config({
-  path: path.resolve(__dirname, '..', '.env.development.local'),
+  path: path.resolve(__dirname, '..', '.env.local'),
 });
 
 const awaitHomePage = async ({ page }: { page: Page }) =>
