@@ -1,6 +1,7 @@
 'use client';
 
 import { useFetchTrending } from '@/api/usefetchTrending';
+import { Card } from '@/components/Card';
 import { shouldScroll } from '@/utils/functions';
 
 export const RenderTrending = () => {
@@ -13,30 +14,24 @@ export const RenderTrending = () => {
   if (error) return <div>Oh noooooooo something went wrong!</div>;
 
   return (
-    <div className=" w-auto overflow-auto h-screen" onScroll={handleScroll}>
-      <div className="mb-32 mt-4 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
+    <div className="w-auto overflow-auto h-screen mt-4" onScroll={handleScroll}>
+      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left w-full">
         {data && data.pages
           ? data.pages.map((page) =>
-              page.results.map((item) => (
-                <a
-                  href="#"
-                  className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-                  rel="noopener noreferrer"
-                  key={item.id}
-                >
-                  <h2 className={`text-1xl font-normal opacity-80`}>
-                    {item.media_type.toUpperCase()}
-                  </h2>
-                  <h2 className={`mb-3 text-2xl font-semibold`}>
-                    {item.media_type === 'tv' ? item.name : item.title}{' '}
-                  </h2>
-                  <p
-                    className={`m-0 max-w-[30ch] text-sm opacity-50 line-clamp-3`}
-                  >
-                    {item.overview}
-                  </p>
-                </a>
-              ))
+              page.results.map((item) => {
+                console.log(item);
+                return (
+                  <Card
+                    key={item.id}
+                    href="#"
+                    title={item.media_type === 'tv' ? item.name : item.title}
+                    desc={item.overview}
+                    topic={item.media_type.toUpperCase()}
+                    arrow={false}
+                    imgUrl={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
+                  />
+                );
+              })
             )
           : null}
       </div>
