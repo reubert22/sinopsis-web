@@ -8,7 +8,7 @@ interface ICardProps {
   href: string;
   title: string | undefined;
   topic?: string;
-  desc: string;
+  desc?: string;
   arrow?: boolean;
   imgUrl?: string;
   testId?: string;
@@ -32,8 +32,8 @@ export const Card = ({
       {imgUrl && (
         <Image
           src={imgUrl || ''}
-          alt={title as string}
-          className="object-contain w-full"
+          alt={`img of ${title}`}
+          className="object-contain w-full max-h-[288px]"
           width={64}
           height={64}
         />
