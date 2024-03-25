@@ -1,7 +1,7 @@
 import { ITrendingRequest } from '@/api/usefetchTrending';
 import { Card } from '@/components/Card';
 import { ITrendingItem } from '@/store/trendingStore';
-import { poster500 } from '@/utils/constants';
+import { posterApiUrl } from '@/utils/apiConstants';
 import { InfiniteData } from '@tanstack/react-query';
 
 export const RenderList = ({
@@ -20,7 +20,7 @@ export const RenderList = ({
             desc={item.overview}
             topic={item.media_type.toUpperCase()}
             arrow={false}
-            imgUrl={`${poster500}${item.backdrop_path}`}
+            imgUrl={`${posterApiUrl('original')}${item.backdrop_path}`}
           />
         ))
       )}

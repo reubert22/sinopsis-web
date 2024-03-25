@@ -1,5 +1,3 @@
-//
-
 import { ITrendingItem } from '@/store/trendingStore';
 
 export interface ITrendingPersonItem {

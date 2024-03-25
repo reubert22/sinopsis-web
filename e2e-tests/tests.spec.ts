@@ -2,7 +2,7 @@ import { test, expect, type Page } from '@playwright/test';
 import path from 'path';
 import dotenv from 'dotenv';
 
-import { TRENDING_ALL_URL } from '@/utils/apiConstants';
+import { trendingApiUrl } from '@/utils/apiConstants';
 
 dotenv.config({
   path: path.resolve(__dirname, '..', '.env.local'),
@@ -62,7 +62,7 @@ test('Has redirection to trending and wait items from api', async ({
   await page.waitForURL('**/trending');
   await expect(page).toHaveURL(/trending/);
 
-  const trendingApiCall = await request.get(TRENDING_ALL_URL);
+  const trendingApiCall = await request.get(trendingApiUrl('all'));
 
   expect(trendingApiCall.ok()).toBeTruthy();
   expect(expect.objectContaining(await trendingApiCall.json())).toEqual(

@@ -1,13 +1,9 @@
 'use client';
 
-import {
-  useFetchTrending,
-  useFetchTrendingPeople,
-} from '@/api/usefetchTrending';
+import { useFetchTrendingPeople } from '@/api/usefetchTrending';
 import { shouldScroll } from '@/utils/functions';
-import { RenderList } from '../RenderList';
-import { CATEGORIES } from '../Wrapper';
 import { Card } from '@/components/Card';
+import { posterApiUrl } from '@/utils/apiConstants';
 
 export const People = () => {
   const { data, isLoading, fetchNextPage, error, isFetching } =
@@ -38,7 +34,7 @@ export const People = () => {
                       : knownForFirstItem?.title
                   }
                   arrow={false}
-                  imgUrl={`https://image.tmdb.org/t/p/original${item.profile_path}`}
+                  imgUrl={`${posterApiUrl('original')}${item.profile_path}`}
                 />
               );
             })
